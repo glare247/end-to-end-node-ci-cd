@@ -25,7 +25,10 @@ pipeline {
             steps {
                 withCredentials([string(credentialsId: 'SONAR_TOKEN', variable: 'SONAR_TOKEN')]) {
                     sh '''
-                        sonar-scanner \
+                        docker run --rm \
+                        -e SONAR_TOKEN=$SONAR_TOKEN \
+                        -v $(pwd):/usr/src \
+                        sonarsource/sonar-scanner-cli \
                         -Dsonar.projectKey=abey-org_node-project
                         -Dsonar.organization=Abey-org \
                         -Dsonar.sources=. \
