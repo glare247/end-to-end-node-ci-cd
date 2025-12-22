@@ -45,7 +45,7 @@ pipeline {
 
     }
 
-    Post {
+    post {
         success {
             echo 'sonarcloud analysis successful'
         }
