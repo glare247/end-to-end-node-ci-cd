@@ -29,8 +29,8 @@ pipeline {
                         -e SONAR_TOKEN=$SONAR_TOKEN \
                         -v $(pwd):/usr/src \
                         sonarsource/sonar-scanner-cli \
-                        -Dsonar.projectKey=abey-org_node-project
-                        -Dsonar.organization=Abey-org \
+                        -Dsonar.projectKey=abey-org_node-project \
+                        -Dsonar.organization=abey-org \
                         -Dsonar.sources=. \
                         -Dsonar.host.url=https://sonarcloud.io \
                         -Dsonar.login=$SONAR_TOKEN
