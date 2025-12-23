@@ -77,10 +77,10 @@ pipeline {
                     sh '''
                         export KUBECONFIG=$KUBECONFIG
                         export AWS_DEFAULT_REGION=us-east-1
-
+                        aws sts get-caller-identity
                         echo "installing prometheus monitor...."
                         helm repo add prometheus-community https://prometheus-community.github.io/helm-charts || true
-
+                
                         helm repo update
                         helm upgrade --install prometheus \
                           prometheus-community/kube-prometheus-stack \
@@ -105,7 +105,7 @@ pipeline {
             echo 'SonarCloud analysis successful'
             echo 'Docker image built and pushed successfully'
             echo "Pushed Image: $REPOSITORY_URI:$IMAGE_TAG"
-            echo 'Kubernetes deployment successful!'
+            echo 'Kubernetes deployment successful!!'
         }
         failure {
             echo 'Build failed. Check logs above'
