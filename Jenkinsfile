@@ -105,7 +105,7 @@ pipeline {
             echo 'SonarCloud analysis successful'
             echo 'Docker image built and pushed successfully'
             echo "Pushed Image: $REPOSITORY_URI:$IMAGE_TAG"
-            echo 'Kubernetes deployment successful'
+            echo 'Kubernetes deployment successful!'
         }
         failure {
             echo 'Build failed. Check logs above'
